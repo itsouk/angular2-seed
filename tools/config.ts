@@ -11,6 +11,11 @@ export const LIVE_RELOAD_PORT     = argv['reload-port'] || 4002;
 export const DOCS_PORT            = argv['docs-port']   || 4003;
 export const APP_BASE             = argv['base']        || '/';
 
+export const ENABLE_HOT_LOADING   = !!argv['hot-loader'];
+export const HOT_LOADER_PORT      = 5578;
+
+export const BOOTSTRAP_MODULE     = ENABLE_HOT_LOADING ? 'hot_loader_bootstrap' : 'bootstrap';
+
 export const APP_TITLE            = 'My Angular2 App';
 
 export const APP_SRC              = 'app';
@@ -68,6 +73,7 @@ const SYSTEM_CONFIG_DEV = {
   defaultJSExtensions: true,
   paths: {
     'bootstrap': `${APP_ROOT}bootstrap`,
+    'hot_loader_bootstrap': `${APP_ROOT}hot_loader_bootstrap`,
     '*': `${APP_BASE}node_modules/*`
   }
 };
